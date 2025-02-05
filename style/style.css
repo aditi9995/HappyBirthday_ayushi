@@ -109,7 +109,7 @@ body {
 }
 
 .idea-6 span {
-  font-size: 15rem;
+  font-size: 10rem;
 }
 
 .six {
@@ -124,11 +124,12 @@ body {
 
 .six .hat {
   position: absolute;
-  width: 80px;
-  top: -35px;
-  left: 41.5%;
-  /* transform: scale(0.1); */
+  width: 100px;
+  top: -90px;
+  left: 60%;
+  transform: translateX(-50px);
 }
+
 
 .baloons img {
   display: inline-block;
