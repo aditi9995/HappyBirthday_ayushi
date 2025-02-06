@@ -296,10 +296,70 @@ const animationTimeline = () => {
   // tl.timeScale(2);
 
   // Restart Animation on click
+  // const replyBtn = document.getElementById("replay");
+  // replyBtn.addEventListener("click", () => {
+  //   window.location.href = "2/index2.html"
+  // });
   const replyBtn = document.getElementById("replay");
+
   replyBtn.addEventListener("click", () => {
-    window.location.href = "2/index2.html"
+      // Tạo nền đen cho toàn màn hình
+      const overlay = document.createElement("div");
+      overlay.style.position = "fixed";
+      overlay.style.top = "0";
+      overlay.style.left = "0";
+      overlay.style.width = "100%";
+      overlay.style.height = "100%";
+      overlay.style.backgroundColor = "black";
+      overlay.style.zIndex = "999";
+      document.body.appendChild(overlay);
+  
+      // Tạo thẻ video
+      const video = document.createElement("video");
+      video.src = "gift2/gift2.mp4";
+      video.controls = true;
+      video.style.position = "fixed";
+      video.style.top = "50%";
+      video.style.left = "50%";
+      video.style.transform = "translate(-50%, -50%)";
+      video.style.zIndex = "1000";
+      document.body.appendChild(video);
+  
+      video.play();
+  
+      // Tạo nút "Click to Next" (ẩn ban đầu)
+      const nextBtn = document.createElement("button");
+      nextBtn.textContent = "💟Click to Next💟";
+      nextBtn.style.position = "fixed";
+      nextBtn.style.bottom = "20px";
+      nextBtn.style.right = "20px";
+      nextBtn.style.padding = "10px 20px";
+      nextBtn.style.backgroundColor = "white";
+      nextBtn.style.color = "black";
+      nextBtn.style.border = "none";
+      nextBtn.style.fontSize = "16px";
+      nextBtn.style.cursor = "pointer";
+      nextBtn.style.zIndex = "1001";
+      nextBtn.style.display = "none"; // Ẩn nút ban đầu
+      document.body.appendChild(nextBtn);
+  
+      let isFirstPlay = true; // Biến kiểm tra lần phát đầu tiên
+  
+      // Hiển thị nút sau khi video kết thúc lần đầu tiên
+      video.addEventListener("ended", () => {
+          if (isFirstPlay) {
+              nextBtn.style.display = "block"; // Hiện nút sau khi video kết thúc lần đầu
+              isFirstPlay = false; // Đánh dấu là đã qua lần phát đầu
+          }
+          video.play(); // Tự động phát lại video
+      });
+  
+      // Khi click vào nút, chuyển sang index3.html
+      nextBtn.addEventListener("click", () => {
+          window.location.href = "gift3/index3.html";
+      });
   });
+  
 };
 
 // Run fetch and animation in sequence
