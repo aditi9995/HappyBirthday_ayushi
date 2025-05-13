@@ -302,8 +302,8 @@ const animationTimeline = () => {
   // });
   const replyBtn = document.getElementById("replay");
 
-  replyBtn.addEventListener("click", () => {
-      // Tạo nền đen cho toàn màn hình
+  /* replyBtn.addEventListener("click", () => {
+       Tạo nền đen cho toàn màn hình
       const overlay = document.createElement("div");
       overlay.style.position = "fixed";
       overlay.style.top = "0";
@@ -352,10 +352,10 @@ const animationTimeline = () => {
               isFirstPlay = false; // Đánh dấu là đã qua lần phát đầu
           }
           video.play(); // Tự động phát lại video
-      });
+      });*/
   
       // Khi click vào nút, chuyển sang index3.html
-      nextBtn.addEventListener("click", () => {
+      replyBtn.addEventListener("click", () => {
           window.location.href = "gift3/index3.html";
       });
   });
